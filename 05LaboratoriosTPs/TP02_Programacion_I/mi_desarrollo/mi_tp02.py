@@ -89,11 +89,13 @@ def ejecutar_mision(
     print("Avanza otros 40 centimetros...")
     robot.avanzar(velocidad=0.2, tiempo=2.0)
 
-    robot.detenerse()
-
     print("Saludando")
     robot.saludar()
     print("Recorrido terminado.")
+
+    for accion in mision:
+        metodo = getattr(robot, accion[0])
+        metodo(*accion[1:])
 
 
 # =====================================================================
@@ -124,7 +126,7 @@ def main() -> None:
         # Empeza probando con MISION_BASICA.
         # Cuando funcione, proba con MISION_CON_ERRORES: esa tiene
         # comandos invalidos a proposito.
-        ejecutar_mision(robot, MISION_BASICA, historial)
+        ejecutar_mision(robot, MISION_CUADRADO, historial)
         generar_reporte(historial)
     finally:
         robot.detenerse()
