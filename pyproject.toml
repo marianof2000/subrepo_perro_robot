@@ -1,0 +1,14 @@
+[project]
+name = "06-uaderobotlab"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mujoco>=3.13.0",
+]
+
+[tool.uv.workspace]
+members = [
+    "05LaboratoriosTPs/TP02_Programacion_I",
+]
